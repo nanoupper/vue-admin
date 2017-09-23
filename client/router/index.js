@@ -18,6 +18,11 @@ export default new Router({
       path: '/login',
       component: require('../views/auth/Login')
     },
+    {
+      name: 'Hermes',
+      path: '/hermes',
+      component: require('../views/hermes')
+    },
     ...generateRoutesFromMenu(menuModule.state.items),
     {
       path: '*',

@@ -30,6 +30,16 @@ const state = {
       },
       component: lazyLoading('axios', true)
     },
+    {
+      name: 'Hermes',
+      path: '/hermes',
+      meta: {
+        auth: true,
+        icon: 'fa-tint',
+        link: 'hermes/index.vue'
+      },
+      component: lazyLoading('hermes', true)
+    },
     charts,
     uifeatures,
     components,
