@@ -20,3 +20,9 @@ export const switchEffect = ({ commit }, effectItem) => {
     commit(types.SWITCH_EFFECT, effectItem)
   }
 }
+
+export const loginUser = ({ commit }, payload) => {
+  if (payload) {
+    commit(types.AUTHENTICATION, payload)
+  }
+}

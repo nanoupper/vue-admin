@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="tile is-parent is-4">
+    <div v-if="this.isIn" class="tile is-parent ">
       <article class="tile is-child box">
         <h1 class="title">Hermes Lehrvideos</h1>
         <div class="block is-flex">
@@ -15,11 +15,16 @@
         </div>
       </article>
     </div>
+    <div v-else>
+      <article class="tile is-child box">Please login !</article>
+      <button @click="change_login">login</button>
+    </div>
   </div>
 </template>
 <script>
   import myVideo from 'vue-video-module'
   import { Collapse, Item as CollapseItem } from 'vue-bulma-collapse'
+  import { mapGetters, mapActions } from 'vuex'
 
   export default {
     components: {
@@ -34,6 +39,19 @@
           poster: 'image/2.jpg',
           fullscreen: true
         }
+      }
+    },
+
+    computed: mapGetters({
+      isIn: 'isAuthenticated'
+    }),
+    methods: {
+      ...mapActions([
+        'loginUser'
+      ]),
+      change_login () {
+        this.loginUser({isAuthenticated: true})
+        console.log(this.isIn)
       }
     },
     mounted () {

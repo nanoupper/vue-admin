@@ -11,7 +11,8 @@ const state = {
   },
   effect: {
     translate3d: true
-  }
+  },
+  isAuthenticated: false
 }
 
 const mutations = {
@@ -36,6 +37,9 @@ const mutations = {
     for (let name in effectItem) {
       state.effect[name] = effectItem[name]
     }
+  },
+  [types.AUTHENTICATION] (state, payload) {
+    state.isAuthenticated = payload.isAuthenticated
   }
 }
 
